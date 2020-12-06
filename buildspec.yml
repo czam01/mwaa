@@ -5,4 +5,4 @@ phases:
         python: 3.7
   build:
     commands:
-      - aws s3 cp $(pwd) s3://airflow-demo-da
+      - aws s3 cp --recursive $(pwd) s3://airflow-demo-da/
