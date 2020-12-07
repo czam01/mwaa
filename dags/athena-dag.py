@@ -33,10 +33,12 @@ slack_dag = SlackWebhookOperator(
   ).execute(context=None)
 
 
-load_athena = PythonOperator(
-    task_id='athena_da',
-    python_callable=athena_query.run,
-    dag=dag
-)
+
+
+#load_athena = PythonOperator(
+#    task_id='athena_da',
+#    python_callable=athena_query.run,
+#    dag=dag
+#)
 
 slack_dag
