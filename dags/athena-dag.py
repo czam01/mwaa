@@ -39,4 +39,4 @@ load_athena = PythonOperator(
     dag=dag
 )
 
-slack_dag >> load_athena 
+slack_dag
