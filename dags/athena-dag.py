@@ -3,6 +3,9 @@ from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from jobsda import athena_query
+from airflow.operators.slack_plugin import slack_webhook_operator
+from airflow.hooks.slack_plugin import slack_webhook_hook
+from operators.slack_webhook_operator import SlackWebhookOperator
 
 
 WORKFLOW_DEFAULT_ARGS = {
@@ -23,6 +26,14 @@ dag = DAG(
     default_args=WORKFLOW_DEFAULT_ARGS
 )
 
+slack_dag = SlackWebhookOperator(
+    task_id='slack',
+    http_conn_id='slack_connection',
+    webhook_token='https://hooks.slack.com/services/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',
+    message='hello from slack',
+    channel='#airflowchannel'
+  )
+
 
 load_athena = PythonOperator(
     task_id='athena_da',
@@ -30,4 +41,4 @@ load_athena = PythonOperator(
     dag=dag
 )
 
-load_athena 
+slack_dag >> load_athena 
