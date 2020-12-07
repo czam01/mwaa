@@ -18,12 +18,13 @@ dag = DAG(
     dag_id='demo_da_every',
     description='Main DAG for da',
     schedule_interval='* * * * *',
+    start_date=datetime(2020, 11, 1),
     catchup=False,
     default_args=WORKFLOW_DEFAULT_ARGS
 )
 
 slack_dag = SlackWebhookOperator(
-    task_id='slack_message',
+    task_id='slack',
     http_conn_id='slack_connection',
     message='hello from slack',
     channel='#airflowchannel'
