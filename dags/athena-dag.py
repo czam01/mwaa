@@ -15,7 +15,7 @@ WORKFLOW_DEFAULT_ARGS = {
 }
 
 dag = DAG(
-    dag_id='demo_da_every',
+    dag_id='another_dag',
     description='Main DAG for da',
     schedule_interval='* * * * *',
     start_date=datetime(2020, 11, 1),
@@ -26,6 +26,7 @@ dag = DAG(
 slack_dag = SlackWebhookOperator(
     task_id='slack',
     http_conn_id='slack_connection',
+    webhook_token='https://hooks.slack.com/services/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',
     message='hello from slack',
     channel='#airflowchannel'
   )
