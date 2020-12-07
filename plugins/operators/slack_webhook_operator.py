@@ -19,7 +19,7 @@
 #
 from airflow.operators.http_operator import SimpleHttpOperator
 from airflow.utils.decorators import apply_defaults
-from airflow.hooks.slack_webhook_hook import SlackWebhookHook
+from hooks.slack_webhook_hook import SlackWebhookHook
 
 
 
