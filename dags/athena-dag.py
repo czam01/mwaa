@@ -30,7 +30,7 @@ slack_dag = SlackWebhookOperator(
     webhook_token='https://hooks.slack.com/services/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',
     message='hello from slack',
     channel='#airflowchannel'
-  ).execute(context=None)
+  )
 
 
 
