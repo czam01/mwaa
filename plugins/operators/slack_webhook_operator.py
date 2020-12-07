@@ -23,7 +23,7 @@ from airflow.hooks.slack_webhook_hook import SlackWebhookHook
 
 
 
- class SlackWebhookOperator(SimpleHttpOperator):
+class SlackWebhookOperator(SimpleHttpOperator):
     """
     This operator allows you to post messages to Slack using incoming webhooks.
     Takes both Slack webhook token directly and connection that has Slack webhook token.
@@ -63,7 +63,7 @@ from airflow.hooks.slack_webhook_hook import SlackWebhookHook
     """
 
 
-     template_fields = ['webhook_token', 'message', 'attachments', 'blocks', 'channel',
+    template_fields = ['webhook_token', 'message', 'attachments', 'blocks', 'channel',
                        'username', 'proxy', 'extra_options', ]
 
 
@@ -101,7 +101,7 @@ from airflow.hooks.slack_webhook_hook import SlackWebhookHook
         self.extra_options = extra_options
 
 
-     def execute(self, context):
+    def execute(self, context):
         """
         Call the SlackWebhookHook to post the provided Slack message
         """

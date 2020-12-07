@@ -23,7 +23,7 @@ from airflow.exceptions import AirflowException
 
 
 
- class SlackWebhookHook(HttpHook):
+class SlackWebhookHook(HttpHook):
     """
     This hook allows you to post messages to Slack using incoming webhooks.
     Takes both Slack webhook token directly and connection that has Slack webhook token.
@@ -92,7 +92,7 @@ from airflow.exceptions import AirflowException
         self.extra_options = extra_options or {}
 
 
-     def _get_token(self, token, http_conn_id):
+    def _get_token(self, token, http_conn_id):
         """
         Given either a manually set token or a conn_id, return the webhook_token to use.
 
@@ -115,7 +115,7 @@ from airflow.exceptions import AirflowException
                                    'webhook token nor conn_id supplied')
 
 
-     def _build_slack_message(self):
+    def _build_slack_message(self):
         """
         Construct the Slack message. All relevant parameters are combined here to a valid
         Slack json message.
@@ -145,7 +145,7 @@ from airflow.exceptions import AirflowException
 
 
 
-     def execute(self):
+    def execute(self):
         """
         Remote Popen (actually execute the slack webhook call)
         """
