@@ -26,7 +26,6 @@ dag = DAG(
 slack_dag = SlackWebhookOperator(
     task_id='slack',
     http_conn_id='slack_connection',
-    webhook_token='https://hooks.slack.com/services/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',
     message='hello from slack',
     channel='#airflowchannel'
   )
