@@ -56,7 +56,8 @@ TBLPROPERTIES (
   'skip.header.line.count'='1',
   'typeOfData'='file') ''',
     output_location='s3://airflow-demo-results/',
-    database='mlpreparation'
+    query_execution_context= { 
+        database='mlpreparation'}    
 )
 
 load_athena = PythonOperator(
