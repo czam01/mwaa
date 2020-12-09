@@ -33,28 +33,7 @@ slack_dag = SlackWebhookOperator(
 
 run_query = AWSAthenaOperator(
     task_id='my_athena_query_da',
-    query='''
-CREATE EXTERNAL TABLE manual_validations(
-  ticket_id string,
-  document_number string,
-  result string,
-  created_at string,
-  updated_at string)
-ROW FORMAT DELIMITED
-  FIELDS TERMINATED BY ','
-STORED AS INPUTFORMAT
-  'org.apache.hadoop.mapred.TextInputFormat'
-OUTPUTFORMAT
-  'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
-LOCATION
-  's3://airflow-demo-results/'
-TBLPROPERTIES (
-  'classification'='csv',
-  'columnsOrdered'='true',
-  'compressionType'='none',
-  'delimiter'=',',
-  'skip.header.line.count'='1',
-  'typeOfData'='file') ''',
+    query='SELECT * FROM "mlpreparation"."ml_data_preparation" limit 10',
     output_location='s3://airflow-demo-results/',
     query_execution_context='mlpreparation'
 )
