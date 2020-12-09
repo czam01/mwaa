@@ -44,4 +44,4 @@ load_athena = PythonOperator(
     dag=dag
 )
 
-slack_dag >> run_query
+run_query >> load_athena
