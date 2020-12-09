@@ -57,8 +57,8 @@ template_fields = ('query', 'database', 'output_location')
 template_ext = ('.sql', )
 
 
-    @apply_defaults
-    def __init__(self, query, database, output_location, aws_conn_id='aws_default', client_request_token=None,
+@apply_defaults
+def __init__(self, query, database, output_location, aws_conn_id='aws_default', client_request_token=None,
                  query_execution_context=None, result_configuration=None, sleep_time=30, max_tries=None,
                  workgroup='primary',
                  *args, **kwargs):

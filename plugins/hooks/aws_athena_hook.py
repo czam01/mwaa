@@ -45,7 +45,7 @@ FAILURE_STATES = ('FAILED', 'CANCELLED',)
 SUCCESS_STATES = ('SUCCEEDED',)
 
 
-    def __init__(self, aws_conn_id='aws_default', sleep_time=30, *args, **kwargs):
+def __init__(self, aws_conn_id='aws_default', sleep_time=30, *args, **kwargs):
         super(AWSAthenaHook, self).__init__(aws_conn_id, *args, **kwargs)
         self.sleep_time = sleep_time
         self.conn = None
