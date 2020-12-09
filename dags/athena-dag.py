@@ -15,7 +15,7 @@ WORKFLOW_DEFAULT_ARGS = {
 }
 
 dag = DAG(
-    dag_id='another_dag',
+    dag_id='final_dag',
     description='Main DAG for da',
     schedule_interval='* * * * *',
     start_date=datetime(2020, 11, 1),
@@ -30,12 +30,12 @@ slack_dag = SlackWebhookOperator(
     channel='#airflowchannel'
   )
 
-run_query = AWSAthenaOperator(
-    task_id='my_athena_query_da',
-    query='SELECT * FROM "mlpreparation"."ml_data_preparation" limit 10',
-    output_location='s3://airflow-demo-results/',
-    query_execution_context='mlpreparation'
-)
+#run_query = AWSAthenaOperator(
+#    task_id='my_athena_query_da',
+#    query='SELECT * FROM "mlpreparation"."ml_data_preparation" limit 10',
+#    output_location='s3://airflow-demo-results/',
+#    query_execution_context='mlpreparation'
+#)
 
 load_athena = PythonOperator(
     task_id='athena_da',
