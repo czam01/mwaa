@@ -30,7 +30,6 @@ slack_dag = SlackWebhookOperator(
     channel='#airflowchannel'
   )
 
-
 run_query = AWSAthenaOperator(
     task_id='my_athena_query_da',
     query='SELECT * FROM "mlpreparation"."ml_data_preparation" limit 10',
@@ -45,4 +44,4 @@ load_athena = PythonOperator(
 )
 
 
-run_query >> load_athena
+load_athena  >> slack_dag
