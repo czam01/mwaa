@@ -4,7 +4,7 @@ from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from jobsda import athena_query
 from operators.slack_webhook_operator import SlackWebhookOperator
-
+from operators.aws_athena_operator import AWSAthenaOperator
 
 WORKFLOW_DEFAULT_ARGS = {
     'email': ['admin@clouding.la'],
@@ -31,7 +31,12 @@ slack_dag = SlackWebhookOperator(
   )
 
 
-
+run_query = AWSAthenaOperator(
+    task_id='run_query',
+    query='SELECT * FROM "mlpreparation"."ml_data_preparation" limit 10;',
+    output_location='s3://airflow-demo-results/',
+    database='mlpreparation'
+)
 
 load_athena = PythonOperator(
     task_id='athena_da',
@@ -39,4 +44,4 @@ load_athena = PythonOperator(
     dag=dag
 )
 
-slack_dag >> load_athena
+slack_dag >> run_query
