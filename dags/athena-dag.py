@@ -32,7 +32,7 @@ slack_dag = SlackWebhookOperator(
 
 
 run_query = AWSAthenaOperator(
-    task_id='run_query',
+    task_id='my_athena_query_da',
     query='''
 CREATE EXTERNAL TABLE manual_validations(
   ticket_id string,
@@ -56,8 +56,7 @@ TBLPROPERTIES (
   'skip.header.line.count'='1',
   'typeOfData'='file') ''',
     output_location='s3://airflow-demo-results/',
-    query_execution_context= { 
-        database='mlpreparation'}    
+    query_execution_context='mlpreparation'
 )
 
 load_athena = PythonOperator(
