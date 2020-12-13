@@ -4,8 +4,6 @@ from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from jobsda import athena_query
 from operators.slack_webhook_operator import SlackWebhookOperator
-from operators.aws_athena_operator import AWSAthenaOperator
-
 
 
 WORKFLOW_DEFAULT_ARGS = {
@@ -17,10 +15,10 @@ WORKFLOW_DEFAULT_ARGS = {
 }
 
 dag = DAG(
-    dag_id='final_dag',
+    dag_id='demo_dag_da',
     description='Main DAG for da',
     schedule_interval='* * * * *',
-    start_date=datetime(2020, 11, 1),
+    start_date=datetime(2020, 11, 2),
     catchup=False,
     default_args=WORKFLOW_DEFAULT_ARGS
 )
@@ -31,13 +29,6 @@ slack_dag = SlackWebhookOperator(
     message='hello from slack',
     channel='#airflowchannel'
   )
-
-#run_query = AWSAthenaOperator(
-#    task_id='my_athena_query_da',
-#    query='SELECT * FROM "mlpreparation"."ml_data_preparation" limit 10',
-#    output_location='s3://airflow-demo-results/',
-#    query_execution_context='mlpreparation'
-#)
 
 load_athena = PythonOperator(
     task_id='athena_da',
