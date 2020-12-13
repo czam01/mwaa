@@ -65,12 +65,12 @@ task15 = SlackWebhookOperator(
     message='I am the tastk 1_5',
     channel='#airflowchannel'
   )
-  task16 = SlackWebhookOperator(
+task16 = SlackWebhookOperator(
     task_id='task_1_6',
     http_conn_id='slack_connection',
     message='I am the tastk 1_6',
     channel='#airflowchannel'
-  )
+ )
 
 task1 >> task12
 task1 >> task13
