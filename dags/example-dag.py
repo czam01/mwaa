@@ -149,6 +149,7 @@ task13 >> task131
 task131 >> task131161
 task161 >> task131161
 task2 >> task234
+task2 >> task21
 task3 >> task234
 task4 >> task234
 task234 >> task131161
