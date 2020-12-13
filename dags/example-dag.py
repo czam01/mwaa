@@ -7,7 +7,7 @@ from operators.slack_webhook_operator import SlackWebhookOperator
 
 
 WORKFLOW_DEFAULT_ARGS = {
-    'email': ['admin@clouding.la'],
+    'email': ['miemail@midomain.com'],
     'email_on_failure': True,
     'email_on_retry': True,
     'retries': 1,
