@@ -100,6 +100,44 @@ task131161 = SlackWebhookOperator(
     dag=dag
  )
 
+task2 = SlackWebhookOperator(
+    task_id='task_2',
+    http_conn_id='slack_connection',
+    message='I am the tastk 2',
+    channel='#airflowchannel',
+    dag=dag
+  )
+
+task21 = SlackWebhookOperator(
+    task_id='task_2_1',
+    http_conn_id='slack_connection',
+    message='I am the tastk 2_1',
+    channel='#airflowchannel',
+    dag=dag
+  )
+task3 = SlackWebhookOperator(
+    task_id='task_3',
+    http_conn_id='slack_connection',
+    message='I am the tastk 3',
+    channel='#airflowchannel',
+    dag=dag
+  )
+task4 = SlackWebhookOperator(
+    task_id='task_4',
+    http_conn_id='slack_connection',
+    message='I am the tastk 4',
+    channel='#airflowchannel',
+    dag=dag
+  )
+task234 = SlackWebhookOperator(
+    task_id='task_2_3_$',
+    http_conn_id='slack_connection',
+    message='I am the tastk 2_3_4',
+    channel='#airflowchannel',
+    dag=dag
+  )
+
+
 task1 >> task11
 task1 >> task12
 task1 >> task13
@@ -110,3 +148,7 @@ task16 >> task161
 task13 >> task131
 task131 >> task131161
 task161 >> task131161
+task2 >> task234
+task3 >> task234
+task4 >> task234
+task234 >> task131161
