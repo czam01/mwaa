@@ -1,7 +1,6 @@
 import os
 from datetime import datetime, timedelta
 from airflow import DAG
-from airflow.operators.python_operator import SlackWebhookOperator
 from jobsda import athena_query
 from operators.slack_webhook_operator import SlackWebhookOperator
 
