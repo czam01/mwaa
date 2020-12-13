@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.python_operator import PythonOperator
 from jobsda import athena_query
-from airflow.operators.slack_webhook_operator import SlackWebhookOperator
+from operators.slack_webhook_operator import SlackWebhookOperator
 
 
 WORKFLOW_DEFAULT_ARGS = {
