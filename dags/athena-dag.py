@@ -5,7 +5,6 @@ from airflow.operators.python_operator import PythonOperator
 from jobsda import athena_query
 from operators.slack_webhook_operator import SlackWebhookOperator
 from operators.aws_athena_operator import AWSAthenaOperator
-#from operators.slack_plugin.slack_webhook_operator import SlackWebhookOperator
 
 
 
