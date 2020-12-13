@@ -130,7 +130,7 @@ task4 = SlackWebhookOperator(
     dag=dag
   )
 task234 = SlackWebhookOperator(
-    task_id='task_2_3_$',
+    task_id='task_2_3_4',
     http_conn_id='slack_connection',
     message='I am the tastk 2_3_4',
     channel='#airflowchannel',
