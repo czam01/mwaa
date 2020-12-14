@@ -151,7 +151,7 @@ task1311612 = SlackWebhookOperator(
   )
 
 task1 >> task11
-task1 >> task12
+# task1 >> task12
 task1 >> task13
 task1 >> task14
 task1 >> task15
