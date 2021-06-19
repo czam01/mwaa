@@ -150,7 +150,7 @@ task1311612 = SlackWebhookOperator(
     dag=dag
   )
 
-extraer_info >> task11
+extraer_info >> task131
 extraer_info >> task12
 extraer_info >> task13
 extraer_info >> task14
