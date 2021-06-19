@@ -24,7 +24,7 @@ dag = DAG(
     default_args=WORKFLOW_DEFAULT_ARGS
 )
 
-task1 = SlackWebhookOperator(
+extraer_info = SlackWebhookOperator(
     task_id='task_1',
     http_conn_id='slack_connection',
     message='I am the task 1',
@@ -150,12 +150,12 @@ task1311612 = SlackWebhookOperator(
     dag=dag
   )
 
-task1 >> task11
-task1 >> task12
-task1 >> task13
-task1 >> task14
-task1 >> task15
-task1 >> task16
+extraer_info >> task11
+extraer_info >> task12
+extraer_info >> task13
+extraer_info >> task14
+extraer_info >> task15
+extraer_info >> task16
 task16 >> task161
 task13 >> task131
 task131 >> task131161
