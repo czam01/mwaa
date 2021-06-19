@@ -25,7 +25,7 @@ dag = DAG(
 )
 
 extraer_info = SlackWebhookOperator(
-    task_id='task_1',
+    task_id='extraer_info',
     http_conn_id='slack_connection',
     message='I am the task 1',
     channel='#airflowchannel',
